@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<div>
+  <form action="/action_page.php">
+    <label for="fname">Usuario</label>
+    <input type="text" id="fname" name="Usuario" placeholder="Usuario..">
+
+    <label for="lname">Contraseña</label>
+    <input type="text" id="lname" name="Contraseña" placeholder="Contraseña..">
+
+    <p>  </p>
+  </form>
+</div>
+<div class="navbar">
+  <a class="active" href="#"><i class="fa fa-fw fa-inventory"></i> Inventario</a> 
+  <a href="Porcentaje.html"><i class="fa fa-fw fa-percent"></i> Porcentaje</a> 
+  <a href="Informe.html"><i class="fa fa-fw fa-file-contract"></i> Informe</a> 
+  <a href="Ventas.html"><i class="fa fa-fw fa-file-chart-line"></i> Ventas</a>
+  <a href="Meta.html"><i class="fa fa-fw fa-flag"></i> Meta</a>
+</div>
+<p></p>
+<table>
+  <tr>
+    <th>idProducto</th>
+    <th>Nombre</th>
+    <th>Cantidad</th>
+    <th>Precio</th>
+    <th>Codigo De Barras</th>
+    <th>Fecha de Entrada</th>
+    <th>Fecha de Caducidad</th>
+    <th>Proveedor</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+</table>
+
+<p></p>
+<button type="button" onclick="alert('Hello world!')">Generar</button>
+<p></p>
+<div style="float: left; width: 700px;" >
+<form action="/action_page.php">
+  idProducto:<br>
+  <input type="text" name="idProducto" value=" ">
+  <br>
+  Nombre:<br>
+  <input type="text" name="Nombre" value=" ">
+  <br>
+  Cantidad:<br>
+  <input type="text" name="Cantidad" value=" ">
+  <br>
+  Precio:<br>
+  <input type="text" name="Precio" value=" ">
+  <br>
+  Codigo de Barras:<br>
+  <input type="text" name="Codigo de Barras" value=" ">
+  <br>
+  Fecha Entrada:<br>
+  <input type="text" name="Fecha Entrada" value=" ">
+  <br>
+  Fecha de Caducidad:<br>
+  <input type="text" name="Fecha de Caducidad" value=" ">
+  <br>
+  Proveedor:<br>
+  <input type="text" name="Proveedor" value=" ">
+  <br><br>
+</form> 
+</div>
+
+<div style="float: right; width: 600px;" >
+<button type="button" onclick="alert('Hello world!')">Buscar</button>
+<p></p>
+<button type="button" onclick="alert('Hello world!')">Nuevo</button>
+<p></p>
+<button type="button" onclick="alert('Hello world!')">Añadir</button>
+<p></p>
+<button type="button" onclick="alert('Hello world!')">Eliminar</button>
+<p></p>
+<button type="button" onclick="alert('Hello world!')">Modificar</button>
+</div>
+</body>
+</html>

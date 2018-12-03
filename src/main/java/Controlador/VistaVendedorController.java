@@ -5,7 +5,7 @@
  */
 package Controlador;
 
-import Conexion.Conexion;
+import DAO.Conexion;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;

@@ -5,7 +5,7 @@
  */
 package Controlador;
 
-import Conexion.Conexion;
+import DAO.Conexion;
 import VO.Inventario;
 import java.net.URL;
 import java.sql.Connection;
