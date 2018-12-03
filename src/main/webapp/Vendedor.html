@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+</style>
+<body>
+
+
+<p></p>
+<div>
+  <form action="/action_page.php">
+    <label for="fname">Vendedor</label>
+    <input type="text" id="fname" name="Vendedor" placeholder="Vendedor..">
+
+    <label for="lname">idCaja</label>
+    <input type="text" id="lname" name="idCaja" placeholder="idCaja..">
+
+    <label for="lname">DineroActual</label>
+    <input type="text" id="lname" name="DineroActual" placeholder="DineroActual..">
+
+    <p>  </p>
+  </form>
+</div>
+<div class="navbar">
+  <a class="active" href="#"><i class="fa fa-fw fa-inventory"></i> Productos</a> 
+  <a href="#"><i class="fa fa-fw fa-percent"></i> Generar Factura</a> 
+</div>
+<p></p>
+<table>
+<p></p>
+  <tr>
+    <th>idProducto</th>
+    <th>Nombre</th>
+    <th>Cantidad</th>
+    <th>Precio</th>
+    <th>Total</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+</table>
+<p></p>
+<div style="float: left; width: 500px;" >
+
+<form action="/action_page.php">
+  idProducto:<br>
+  <input type="text" name="idProducto" value=" ">
+  <br>
+  Cantidad:<br>
+  <input type="text" name="Cantidad" value=" ">
+  <br><br>
+</form> 
+<button type="button" onclick="alert('Hello world!')">Agregar</button>
+<p></p>
+<button type="button" onclick="alert('Hello world!')">Modificar</button>
+<p></p>
+<button type="button" onclick="alert('Hello world!')">Eliminar</button>
+<p></p>
+</div>
+
+<div style="float: right; width: 500px;" >
+<h3>Cliente</h3>
+<form action="/action_page.php">
+  Cliente:<br>
+  <input type="text" name="Cliente" value=" ">
+  <br>
+  Cedula:<br>
+  <input type="text" name="Cedula" value=" ">
+  <br>
+  Nombre:<br>
+  <input type="text" name="Nombre" value=" ">
+  <br>
+  Telefono:<br>
+  <input type="text" name="Telefono" value=" ">
+  <br>
+  Direccion:<br>
+  <input type="text" name="Direccion" value=" ">
+  <br><br>
+<p></p>
+<button type="button" onclick="alert('Hello world!')">Ok</button>
+<p></p>
+</form> 
+</div>
+</body>
+</html> 

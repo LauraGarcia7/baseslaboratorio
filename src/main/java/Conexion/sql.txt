@@ -1,0 +1,125 @@
+CREATE TABLE Producto(
+    NombreProducto VARCHAR(250) NOT NULL,
+    CodigoProducto INTEGER NOT NULL,
+    Cantidad INTEGER NOT NULL,
+    Precio DOUBLE NOT NULL,
+    CodeBarra INTEGER NOT NULL,
+    DateEntrada DATE,
+    DateCadusidad DATE,
+    Proveedor VARCHAR(250) NOT NULL,
+    PrecioUnitario DOUBLE NOT NULL,
+    Estado INTEGER NOT NULL,
+    PRIMARY KEY(CodigoProducto)
+);
+CREATE TABLE Inventario(
+    Cantidad INTEGER  NOT NULL,
+    IDinventario INTEGER NOT NULL,
+    PrecioTotal DOUBLE NOT NULL,
+    PRIMARY KEY(IDinventario)
+);
+
+CREATE TABLE Supermercado(
+    Nombre VARCHAR(250) NOT NULL,
+    Nit INTEGER NOT NULL,
+    Direccion VARCHAR(250) NOT NULL,
+    Telefono INTEGER NOT NULL,
+    Correo VARCHAR(250) NOT NULL,
+    Ciudad VARCHAR(250) NOT NULL,
+    PRIMARY KEY(Nit)
+);
+
+CREATE TABLE Bodega(
+    IDbodega INTEGER NOT NULL,
+    IDinventario INTEGER NOT NULL,
+    PRIMARY KEY(IDbodega),
+    FOREIGN KEY (IDinventario) REFERENCES Inventario(IDinventario)
+);
+
+CREATE TABLE Persona(
+    IDpersona INTEGER NOT NULL,
+    Nombre VARCHAR(100) NOT NULL,
+    Telefono INTEGER NOT NULL,
+    Correo VARCHAR(250) NOT NULL,
+    Perfil INTEGER NOT NULL,
+    PRIMARY KEY(IDpersona)
+);
+
+CREATE TABLE Vendedor(
+    IDvendedor INTEGER NOT NULL,
+    IDpersona INTEGER NOT NULL,
+    PRIMARY KEY(IDvendedor),
+    FOREIGN KEY(IDpersona) REFERENCES Persona(IDpersona)
+);
+
+CREATE TABLE Administrador(
+    IDadmin INTEGER NOT NULL,
+    IDpersona INTEGER NOT NULL,
+    FOREIGN KEY (IDpersona) REFERENCES Persona (IDpersona)
+);
+
+CREATE TABLE Cliente(
+    IDcliente INTEGER NOT NULL,
+    IDpersona INTEGER NOT NULL,
+    PRIMARY KEY(IDcliente),
+    FOREIGN KEY(IDpersona) REFERENCES Persona (IDpersona)
+);
+
+CREATE TABLE CajaRegistradora(
+    IDCaja INTEGER NOT NULL,
+    Cantidad INTEGER NOT NULL, 
+    FechaFactura DATE,
+    Efectivo DOUBLE NOT NULL,
+    Cambio DOUBLE NOT NULL,
+    IDvendedor INTEGER NOT NULL,
+    Impuesto DOUBLE NOT NULL,
+    IDcliente INTEGER NOT NULL,
+    InfoSuper VARCHAR(250) NOT NULL,
+    PRIMARY KEY(IDCaja),
+    FOREIGN KEY(IDvendedor)REFERENCES Vendedor(IDvendedor),
+    FOREIGN KEY(IDcliente) REFERENCES Cliente(IDcliente)
+);
+
+CREATE TABLE ComputadorPersonal(
+    IDcompu INTEGER NOT NULL,
+    Marca VARCHAR(50)NOT NULL,
+    IDCaja INTEGER NOT NULL,
+    PRIMARY KEY(IDcompu),
+    FOREIGN KEY(IDCaja) REFERENCES CajaRegistradora(IDCaja)
+);
+
+
+INSERT INTO Producto VALUES('Gaseosa', 1009, 12 , 5800 , 1998 , 04/04/2018 , 04/04/2020 , 'Coca-Cola', 5800, 1);
+INSERT INTO Producto VALUES('Pasta', 1010, 10, 1500 , 1234 , 06/03/2018 , 05/02/2020 , 'Doria', 5800, 1);
+INSERT INTO Producto VALUES('Leche', 1011, 11 , 800 , 1466 , 06/04/2018 , 04/04/2022 , 'Alqueria', 5800, 1);
+INSERT INTO Producto VALUES('Cerveza', 1012, 16 , 6700 , 1563, 07/04/2018 , 06/02/2025 , 'Corona', 5800, 1);
+INSERT INTO Producto VALUES('Trululu', 1013, 13 , 9800 , 1788, 06/06/2018 , 08/09/2022 , 'Colombina', 5800, 1);
+INSERT INTO Producto VALUES('Decol', 1020, 19 , 10800 , 19876, 03/06/2018 , 04/03/2020 , 'Clorox', 5800, 1);
+INSERT INTO Producto VALUES('Mantequilla', 1021, 19 , 1700 ,1346 , 02/04/2018 , 03/04/2021 , 'Margarina', 5800, 1);
+INSERT INTO Producto VALUES('Helado', 1022, 22 , 8800 , 1234 , 01/08/2018 , 02/05/2025 , 'CreamHelado', 5800, 1);
+
+-- IDpersona,Nombre,Telefono,Correo,Perfil
+INSERT INTO Persona VALUES(321,'Luis', 20975, 'luis@gmail.com', 1);
+INSERT INTO Persona VALUES(654,'Fernando', 20956, 'fernando@gmail.com', 1);
+INSERT INTO Persona VALUES(987,'Luisa', 20987, 'luisa@gmail.com', 1);
+INSERT INTO Persona VALUES(541,'Alejandro', 20943, 'alejandro@gmail.com', 2);
+INSERT INTO Persona VALUES(543,'Diana', 20912, 'diana@gmail.com', 2);
+INSERT INTO Persona VALUES(761,'Catalina', 20911, 'catakina@gmail.com', 2);
+
+INSERT INTO Vendedor VALUES(6784, 321);
+INSERT INTO Vendedor VALUES(6794, 654);
+
+INSERT INTO Administrador VALUES(7351,987);
+INSERT INTO Administrador VALUES(7355,541);
+
+INSERT INTO Cliente VALUES(4478, 543);
+INSERT INTO Cliente VALUES(4471, 761);
+
+
+
+-- IDCaja,Cantidad, FechaFactura, Efectivo,Cambio,IDvendedor,Impuesto,IDcliente,InfoSuper,
+INSERT INTO CajaRegistradora VALUES(1, 12, 04/03/2018, 34000, 12000, 6784, 16, 4471, 'Somos una empresa dedicada a la venta de productos de la mejor calidad para nuestros clientes');
+INSERT INTO CajaRegistradora VALUES(2, 10, 04/03/2018, 30000, 11000, 6784, 16, 4471, 'Somos una empresa dedicada a la venta de productos de la mejor calidad para nuestros clientes');
+INSERT INTO CajaRegistradora VALUES(3, 9, 04/02/2017, 24000, 10000, 6784, 16, 4471, 'Somos una empresa dedicada a la venta de productos de la mejor calidad para nuestros clientes');
+INSERT INTO CajaRegistradora VALUES(4, 8, 04/02/2017, 20000, 9000, 6784, 16, 4471, 'Somos una empresa dedicada a la venta de productos de la mejor calidad para nuestros clientes');
+INSERT INTO CajaRegistradora VALUES(5, 7, 04/01/2016, 1000, 8000, 6784, 16, 4471, 'Somos una empresa dedicada a la venta de productos de la mejor calidad para nuestros clientes');
+INSERT INTO CajaRegistradora VALUES(0, 6, 04/01/2016, 8000, 7000, 6784, 16, 4471, 'Somos una empresa dedicada a la venta de productos de la mejor calidad para nuestros clientes');
